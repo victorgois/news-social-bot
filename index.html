@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div
+      id="player"
+      style="
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      "
+    ></div>
+
+    <div class="news-wrapper">
+      <!--<div class="bigHeading">Google News API</div>-->
+      <div class="news-update"></div>
+    </div>
+
+    <!--  News JSON  -->
+    <script>
+      fetch("data/news.json")
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          appendDataNews(data);
+        })
+        .catch(function (err) {
+          console.log("error: " + err);
+        });
+      function appendDataNews(data) {
+        var mainContainer = document.getElementsByClassName("news-update")[0];
+        for (var i = 0; i < data.articles.length; i++) {
+          var newsDiv = document.createElement("li");
+          newsDiv.innerHTML =
+            data.articles[i].source.name + " - " + data.articles[i].title;
+          mainContainer.appendChild(newsDiv);
+        }
+      }
+    </script>
+    <!--  News Images JSON  -->
+    <!--     <script>
+      fetch("data/news.json")
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          appendImages(data);
+        })
+        .catch(function (err) {
+          console.log("error: " + err);
+        });
+      function appendImages(data) {
+        var mainContainer = document.getElementsByClassName("image-flow")[0];
+
+        for (var i = 0; i < data.articles.length; i++) {
+          var imagesDiv = document.createElement("img");
+          imagesDiv.src = data.articles[i].urlToImage;
+          console.log(imagesDiv);
+          mainContainer.appendChild(imagesDiv);
+        }
+      }
+    </script> -->
+
+    <div class="left-twitter-wrapper">
+      <div class="tweets-update-left"></div>
+    </div>
+    <div class="right-twitter-wrapper">
+      <div class="tweets-update-right"></div>
+    </div>
+    <div class="image-flow" />
+    <div class="image2-flow" />
+
+    <!--  Tweets JSON  -->
+    <script>
+      fetch("data/tweets.json")
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          appendData(data);
+        })
+        .catch(function (err) {
+          console.log("error: " + err);
+        });
+      function appendData(data) {
+        var leftContainer = document.getElementsByClassName(
+          "tweets-update-left"
+        )[0];
+        var rightContainer = document.getElementsByClassName(
+          "tweets-update-right"
+        )[0];
+
+        /*     var twblockparent = document.createElement("div");
+          twblockparent.className = "tw-block-parent";
+          var timelineTweetListtweet = document.createElement("div");
+          timelineTweetListtweet.className = "timeline-TweetList-tweet";
+          var timelineTweet = document.createElement("div");
+          timelineTweet.className = "timeline-Tweet";
+          var timelineTweetbrand = document.createElement("div");
+          timelineTweetbrand.className = "timeline-Tweet-brand";
+          var IconTwitter = document.createElement("div");
+          IconTwitter.className = "Icon";
+          var timelineTweetAuthor = document.createElement("div");
+          timelineTweetAuthor.className = "timeline-Tweet-author";
+          var TweetAuthor = document.createElement("div");
+          TweetAuthor.className = "TweetAuthor";
+          var TweetAuthorLink = document.createElement("a");
+          TweetAuthorLink.className = "TweetAuthor-link";
+          var TweetAuthorAvatar = document.createElement("span");
+          TweetAuthorAvatar.className = "TweetAuthor-avatar";
+          var Avatar = document.createElement("div");
+          Avatar.className = "Avatar";
+          var TweetAuthorName = document.createElement("span");
+          TweetAuthorName.className = "TweetAuthor-name";
+          var IconVerified = document.createElement("span");
+          IconVerified.className = "Icon--verified";
+          var TweetAuthorScreenName = document.createElement("span");
+          TweetAuthorScreenName.className = "TweetAuthor-screenName";
+          var TimelineTweetText = document.createElement("div");
+          TimelineTweetText.className = "timeline-Tweet-text"; */
+
+        for (var i = 0; i < data.length; i++) {
+          var tweetRightDiv = document.createElement("li");
+          var tweetLeftDiv = document.createElement("li");
+          if (i % 2 == 0) {
+            tweetRightDiv.innerHTML = data[i].text;
+            rightContainer.appendChild(tweetRightDiv);
+          } else {
+            tweetLeftDiv.innerHTML = data[i].text;
+            leftContainer.appendChild(tweetLeftDiv);
+          }
+        }
+      }
+    </script>
+    <!--  YouTube API  -->
+    <script>
+      // Load YouTube library
+      var tag = document.createElement("script");
+
+      tag.src = "https://www.youtube.com/iframe_api";
+
+      var first_script_tag = document.getElementsByTagName("script")[0];
+
+      first_script_tag.parentNode.insertBefore(tag, first_script_tag);
+
+      function onYouTubeIframeAPIReady() {
+        var numPl = Math.floor(Math.random() * 50 + 1);
+        var inputVideoId = ["1X9RvuSuU_Y", "lNz_4dOF4NE", "qPVd290KUro"];
+        var suggestedQuality = "large";
+        var height = "100%";
+        var width = "100%";
+
+        var player = new YT.Player("player", {
+          height: height,
+          width: width,
+          playerVars: {
+            listType: "playlist",
+            list: "PLbouzmFCyUKZUZkyRZRX06N230bDX1hE8",
+            index: numPl,
+            autoplay: 1,
+            controls: 0,
+            rel: 0,
+            showinfo: 0,
+            start: 20,
+            modestbranding: 0,
+          },
+          events: {
+            onReady: function (event) {
+              setTimeout(function () {
+                event.target.setShuffle({ shufflePlaylist: true });
+                console.log("ta chamando o onready");
+              }, 1000);
+            },
+            onStateChange: function (event) {
+              switch (event.data) {
+                case YT.PlayerState.PLAYING:
+                  setTimeout(function () {
+                    event.target.nextVideo();
+                    console.log("ta chamando o onstatechange");
+                  }, 20000);
+                  break;
+                case YT.PlayerState.ENDED:
+                  event.target.nextVideo();
+                  break;
+                default:
+                  return;
+              }
+            },
+            onError: function (event) {
+              event.target.setShuffle({ shufflePlaylist: true });
+              event.target.nextVideo();
+              console.log("deu erro no player");
+            },
+          },
+        });
+      }
+
+      function onStateChange(event) {
+        if (event.data == YT.PlayerState.ENDED) {
+          player.loadVideoById("4MJRS-cLozU");
+        }
+      }
+
+      /*           youTubePlayer = new YT.Player("player", {
+                  videoId: inputVideoId[2],
+                  height: height,
+                  width: width,
+                  playerVars: {
+                    controls: 0,
+                    rel: 0,
+                    showinfo: 0,
+                    start: 10,
+                  },
+                  events: {
+                    onError: onError,
+                    onReady: onReady,
+                    onStateChange: onStateChange,
+                  },
+                });
+              } */
+
+      function youTubePlayerActive() {
+        "use strict";
+
+        return youTubePlayer && youTubePlayer.hasOwnProperty("getPlayerState");
+      }
+
+      function youTubePlayerPause() {
+        "use strict";
+
+        if (youTubePlayerActive()) {
+          youTubePlayer.pauseVideo();
+        }
+      }
+
+      function youTubePlayerPlay() {
+        "use strict";
+
+        if (youTubePlayerActive()) {
+          youTubePlayer.playVideo();
+        }
+      }
+
+      function youTubePlayerStop() {
+        "use strict";
+
+        if (youTubePlayerActive()) {
+          youTubePlayer.stopVideo();
+          youTubePlayer.clearVideo();
+        }
+      }
+    </script>
+  </body>
+</html>
