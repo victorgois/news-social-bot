@@ -21,7 +21,6 @@
     ></div>
 
     <div class="news-wrapper">
-      <!--<div class="bigHeading">Google News API</div>-->
       <div class="news-update"></div>
     </div>
 
@@ -47,6 +46,7 @@
         }
       }
     </script>
+
     <!--  News Images JSON  -->
     <!--     <script>
       fetch("data/news.json")
@@ -100,35 +100,6 @@
           "tweets-update-right"
         )[0];
 
-        /*     var twblockparent = document.createElement("div");
-          twblockparent.className = "tw-block-parent";
-          var timelineTweetListtweet = document.createElement("div");
-          timelineTweetListtweet.className = "timeline-TweetList-tweet";
-          var timelineTweet = document.createElement("div");
-          timelineTweet.className = "timeline-Tweet";
-          var timelineTweetbrand = document.createElement("div");
-          timelineTweetbrand.className = "timeline-Tweet-brand";
-          var IconTwitter = document.createElement("div");
-          IconTwitter.className = "Icon";
-          var timelineTweetAuthor = document.createElement("div");
-          timelineTweetAuthor.className = "timeline-Tweet-author";
-          var TweetAuthor = document.createElement("div");
-          TweetAuthor.className = "TweetAuthor";
-          var TweetAuthorLink = document.createElement("a");
-          TweetAuthorLink.className = "TweetAuthor-link";
-          var TweetAuthorAvatar = document.createElement("span");
-          TweetAuthorAvatar.className = "TweetAuthor-avatar";
-          var Avatar = document.createElement("div");
-          Avatar.className = "Avatar";
-          var TweetAuthorName = document.createElement("span");
-          TweetAuthorName.className = "TweetAuthor-name";
-          var IconVerified = document.createElement("span");
-          IconVerified.className = "Icon--verified";
-          var TweetAuthorScreenName = document.createElement("span");
-          TweetAuthorScreenName.className = "TweetAuthor-screenName";
-          var TimelineTweetText = document.createElement("div");
-          TimelineTweetText.className = "timeline-Tweet-text"; */
-
         for (var i = 0; i < data.length; i++) {
           var tweetRightDiv = document.createElement("li");
           var tweetLeftDiv = document.createElement("li");
@@ -165,7 +136,7 @@
           width: width,
           playerVars: {
             listType: "playlist",
-            list: "PLbouzmFCyUKZUZkyRZRX06N230bDX1hE8",
+            list: "PLJFpqx6emUiL6kVW6TAJfJJ0OoAHzFeeu",
             index: numPl,
             autoplay: 1,
             controls: 0,
@@ -178,7 +149,6 @@
             onReady: function (event) {
               setTimeout(function () {
                 event.target.setShuffle({ shufflePlaylist: true });
-                console.log("ta chamando o onready");
               }, 1000);
             },
             onStateChange: function (event) {
@@ -186,7 +156,6 @@
                 case YT.PlayerState.PLAYING:
                   setTimeout(function () {
                     event.target.nextVideo();
-                    console.log("ta chamando o onstatechange");
                   }, 20000);
                   break;
                 case YT.PlayerState.ENDED:
@@ -203,61 +172,6 @@
             },
           },
         });
-      }
-
-      function onStateChange(event) {
-        if (event.data == YT.PlayerState.ENDED) {
-          player.loadVideoById("4MJRS-cLozU");
-        }
-      }
-
-      /*           youTubePlayer = new YT.Player("player", {
-                  videoId: inputVideoId[2],
-                  height: height,
-                  width: width,
-                  playerVars: {
-                    controls: 0,
-                    rel: 0,
-                    showinfo: 0,
-                    start: 10,
-                  },
-                  events: {
-                    onError: onError,
-                    onReady: onReady,
-                    onStateChange: onStateChange,
-                  },
-                });
-              } */
-
-      function youTubePlayerActive() {
-        "use strict";
-
-        return youTubePlayer && youTubePlayer.hasOwnProperty("getPlayerState");
-      }
-
-      function youTubePlayerPause() {
-        "use strict";
-
-        if (youTubePlayerActive()) {
-          youTubePlayer.pauseVideo();
-        }
-      }
-
-      function youTubePlayerPlay() {
-        "use strict";
-
-        if (youTubePlayerActive()) {
-          youTubePlayer.playVideo();
-        }
-      }
-
-      function youTubePlayerStop() {
-        "use strict";
-
-        if (youTubePlayerActive()) {
-          youTubePlayer.stopVideo();
-          youTubePlayer.clearVideo();
-        }
       }
     </script>
   </body>
