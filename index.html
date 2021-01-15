@@ -40,8 +40,13 @@
         var mainContainer = document.getElementsByClassName("news-update")[0];
         for (var i = 0; i < data.articles.length; i++) {
           var newsDiv = document.createElement("li");
-          newsDiv.innerHTML =
-            data.articles[i].source.name + " - " + data.articles[i].title;
+          var content = document.createElement("p");
+          var source = document.createElement("h4");
+          content.innerHTML = " " + data.articles[i].title;
+          source.innerHTML = data.articles[i].source.name + " ";
+          newsDiv.appendChild(source);
+          newsDiv.appendChild(content);
+          //newsDiv.innerHTML.toUpperCase;
           mainContainer.appendChild(newsDiv);
         }
       }
@@ -92,6 +97,13 @@
         .catch(function (err) {
           console.log("error: " + err);
         });
+
+      /* function applyTemplate (data) {
+        var toAdd = document.createDocumentFragment();
+        var i=1;
+
+      } */
+
       function appendData(data) {
         var leftContainer = document.getElementsByClassName(
           "tweets-update-left"
@@ -103,11 +115,99 @@
         for (var i = 0; i < data.length; i++) {
           var tweetRightDiv = document.createElement("li");
           var tweetLeftDiv = document.createElement("li");
+          tweetRightDiv.innerHTML =
+            '<div class="tw-block-parent"> \
+              <div class="timeline-TweetList-tweet"> \
+                <div class="timeline-Tweet"> \
+                <div class="timeline-Tweet-brand"> \
+                  <div class="Icon Icon--twitter"></div> \
+                </div> \
+                <div class="timeline-Tweet-author"> \
+                  <div class="TweetAuthor"> \
+                    <a class="TweetAuthor-link" href="#channel"> </a \
+                      ><span class="TweetAuthor-avatar"> <div class="Avatar"></div></span \
+                      ><span class="TweetAuthor-name">' +
+            data[i].username +
+            '</span \
+                      ><span class="Icon Icon--verified"> </span \
+                      ><span class="TweetAuthor-screenName">@' +
+            data[i].screen_name +
+            '</span> \
+                  </div> \
+                </div> \
+                <div class="timeline-Tweet-text">' +
+            data[i].text +
+            ' \
+                  <a href="https://twitter.com/"' +
+            data[i].tweet_url +
+            '></a><span></span><a href="#"></a><a href="#"></a>\
+                </div> \
+                <div class="timeline-Tweet-metadata"> \
+                  <span class="timeline-Tweet-timestamp">' +
+            data[i].timestamp +
+            '</span> \
+                </div> \
+                <ul class="timeline-Tweet-actions"> \
+                  <li class="timeline-Tweet-action"> \
+                    <a class="Icon Icon--heart" href="#"></a> \
+                  <li> \
+                  <li class="timeline-Tweet-action"> \
+                    <a class="Icon Icon--share" href="#"></a> \
+                  </li> \
+                </ul> \
+                </div> \
+              </div> \
+            </div> \
+            ';
+          tweetLeftDiv.innerHTML =
+            '<div class="tw-block-parent"> \
+                <div class="timeline-TweetList-tweet"> \
+                  <div class="timeline-Tweet"> \
+                  <div class="timeline-Tweet-brand"> \
+                    <div class="Icon Icon--twitter"></div> \
+                  </div> \
+                  <div class="timeline-Tweet-author"> \
+                    <div class="TweetAuthor"> \
+                      <a class="TweetAuthor-link" href="#channel"> </a \
+                        ><span class="TweetAuthor-avatar"> <div class="Avatar"></div></span \
+                        ><span class="TweetAuthor-name">' +
+            data[i].username +
+            '</span \
+                        ><span class="Icon Icon--verified"> </span \
+                        ><span class="TweetAuthor-screenName">@' +
+            data[i].screen_name +
+            '</span> \
+                    </div> \
+                  </div> \
+                  <div class="timeline-Tweet-text">' +
+            data[i].text +
+            ' \
+                    <a href="https://twitter.com/"' +
+            data[i].tweet_url +
+            '></a><span></span><a href="#"></a><a href="#"></a>\
+                  </div> \
+                  <div class="timeline-Tweet-metadata"> \
+                    <span class="timeline-Tweet-timestamp">' +
+            data[i].timestamp +
+            '</span> \
+                  </div> \
+                  <ul class="timeline-Tweet-actions"> \
+                    <li class="timeline-Tweet-action"> \
+                      <a class="Icon Icon--heart" href="#"></a> \
+                    <li> \
+                    <li class="timeline-Tweet-action"> \
+                      <a class="Icon Icon--share" href="#"></a> \
+                    </li> \
+                  </ul> \
+                  </div> \
+                </div> \
+              </div> \
+              ';
           if (i % 2 == 0) {
-            tweetRightDiv.innerHTML = data[i].text;
+            //tweetRightDiv.innerHTML = data[i].text;
             rightContainer.appendChild(tweetRightDiv);
           } else {
-            tweetLeftDiv.innerHTML = data[i].text;
+            //tweetLeftDiv.innerHTML = data[i].text;
             leftContainer.appendChild(tweetLeftDiv);
           }
         }

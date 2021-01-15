@@ -73,6 +73,29 @@ body {
   color: white;
 }
 
+.news-update li h4 {
+  text-align: left;
+  float: left;
+  background-color: white;
+  color: black;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  margin: auto;
+  text-transform: uppercase;
+}
+
+.news-update li p {
+  text-align: left;
+  float: right;
+  text-transform: uppercase;
+  padding: 5px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 15px;
+}
+
 .image-flow {
   position: relative;
   display: block;
@@ -93,7 +116,7 @@ body {
 
 .right-twitter-wrapper {
   display: inline flow-root list-item;
-  width: 30%;
+  width: 39%;
   margin-right: 10px;
   margin-bottom: 10px;
   margin-top: 0px;
@@ -107,6 +130,7 @@ body {
 
 .tweets-update-right {
   height: max-content;
+  width: 100%;
   overflow: hidden;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
@@ -119,7 +143,7 @@ body {
 }
 
 .tweets-update-right li {
-  width: 50%;
+  width: 30%;
   display: inline-table;
   margin: 10px;
   margin-top: 20px;
@@ -127,16 +151,14 @@ body {
   font-weight: 300;
   text-align: right;
   float: right;
-  background-color: #1da1f2;
   color: white;
   padding: 10px;
-  border: solid 1px white;
   border-radius: 10px;
 }
 
 .left-twitter-wrapper {
   display: inline flow-root list-item;
-  width: 30%;
+  width: 55%;
   margin-right: 10px;
   margin-bottom: 10px;
   margin-top: 0px;
@@ -160,28 +182,30 @@ body {
 }
 
 .tweets-update-left li {
-  width: 50%;
+  width: 30%;
   display: inline-table;
   margin: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
   font-weight: 300;
-  text-align: left;
-  float: left;
-  background-color: #1da1f2;
+  text-align: right;
+  float: right;
   color: white;
   padding: 10px;
-  border: solid 1px white;
   border-radius: 10px;
+  text-align: left;
+  float: left;
 }
 
-/* .tw-block-parent {
+.tw-block-parent {
   width: 500px;
   font: 14px/1.4 Roboto, Helvetica, Arial, Tahoma, sans-serif;
   font-weight: 300;
-  color: #292f33;
+  color: #332931;
   transform: translateY(100%);
   animation: verticalslide 100s linear infinite;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .Avatar {
   width: 32px;
@@ -191,6 +215,7 @@ body {
 }
 .timeline-TweetList-tweet {
   border-top: 1px solid rgba(15, 70, 100, 0.12);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 .timeline-TweetList-tweet:first-of-type {
   border-top: none;
@@ -198,6 +223,7 @@ body {
 .timeline-Tweet {
   position: relative;
   padding: 10px;
+  background: transparent;
 }
 .timeline-Tweet a,
 .timeline-Tweet .link {
@@ -207,7 +233,7 @@ body {
 }
 .timeline-Tweet a:hover,
 .timeline-Tweet .link:hover {
-  color: #55acee;
+  color: #55eeae;
 }
 .timeline-Tweet-brand {
   position: absolute;
@@ -218,6 +244,8 @@ body {
   position: relative;
   margin-bottom: 2px;
   padding-left: 40px;
+  margin-right: 20px;
+  color: rgb(138, 136, 136);
 }
 .timeline-Tweet-text {
   margin-left: 40px;
@@ -227,21 +255,22 @@ body {
   line-height: 24px;
   font-weight: 300;
   color: #fff;
-  transform: translateY(100%);
-  animation: verticalslide 100s linear infinite;
+  width: auto;
 }
 .timeline-Tweet-metadata {
   position: absolute;
   bottom: 12px;
   right: 10px;
+  display: none;
 }
 .timeline-Tweet-actions {
   margin: 0 0 0 40px;
   padding: 0;
   list-style: none;
   border: none;
+  display: none;
 }
-.timeline-Tweet-action {
+.tweets-update-right li .timeline-Tweet-action {
   display: inline-block;
   font-size: 17px;
 }
@@ -326,6 +355,7 @@ body {
   opacity: 1;
   cursor: default;
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA3MiI+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGg2NHY3MkgweiIvPjxwYXRoIGZpbGw9IiM4OGM5ZjkiIGQ9Ik0zIDM3LjMxNWMwIDQuMTI1IDIuMTYyIDcuNzI2IDUuMzYzIDkuNjI0LS4wNTYuNDY3LS4wOS45MzctLjA5IDEuNDIgMCA2LjEwMyA0LjcyIDExLjA0NSAxMC41NDYgMTEuMDQ1IDEuMjk1IDAgMi41NDItLjIzNCAzLjY4Ny0uNjg2QzI0LjIyIDYyLjQgMjcuODI3IDY0LjkzIDMyIDY0LjkzYzQuMTc0IDAgNy43ODItMi41MyA5LjQ5LTYuMjEzIDEuMTQ4LjQ1IDIuMzkuNjg1IDMuNjkuNjg1IDUuODI2IDAgMTAuNTQ2LTQuOTQgMTAuNTQ2LTExLjA0NSAwLS40ODMtLjAzNy0uOTUzLS4wOTMtMS40MkM1OC44MyA0NS4wNCA2MSA0MS40NCA2MSAzNy4zMTRjMC00LjM3LTIuNDItOC4xNS01LjkzMy05Ljk0Ni40MjctMS4yMDMuNjU4LTIuNS42NTgtMy44NjUgMC02LjEwNC00LjcyLTExLjA0NS0xMC41NDUtMTEuMDQ1LTEuMzAyIDAtMi41NDMuMjMyLTMuNjkuNjg4LTEuNzA3LTMuNjg1LTUuMzE1LTYuMjE2LTkuNDktNi4yMTYtNC4xNzMgMC03Ljc3OCAyLjUzLTkuNDkyIDYuMjE2LTEuMTQ2LS40NTUtMi4zOTMtLjY4OC0zLjY4OC0uNjg4LTUuODI3IDAtMTAuNTQ1IDQuOTQtMTAuNTQ1IDExLjA0NSAwIDEuMzY0LjIzIDIuNjYyLjY1NiAzLjg2NEM1LjQyIDI5LjE2MyAzIDMyLjk0NCAzIDM3LjMxNHoiLz48cGF0aCBmaWxsPSIjRkZGIiBkPSJNMTcuODcgMzkuMDhsNy4wMTUgNi45NzhjLjU4NS41ODIgMS4zNS44NzMgMi4xMTYuODczLjc3IDAgMS41NDItLjI5NCAyLjEyNy0uODgzLjM0NC0uMzQ2IDE1Ljk4LTE1Ljk3NCAxNS45OC0xNS45NzQgMS4xNzItMS4xNzIgMS4xNzItMy4wNyAwLTQuMjQzLTEuMTctMS4xNy0zLjA3LTEuMTcyLTQuMjQyIDBsLTEzLjg3IDEzLjg2My00Ljg5Mi00Ljg2OGMtMS4xNzQtMS4xNjgtMy4wNzQtMS4xNjQtNC4yNDIuMDEtMS4xNjggMS4xNzYtMS4xNjMgMy4wNzUuMDEgNC4yNDR6Ii8+PC9zdmc+");
+  display: none;
 }
 .Icon--heart {
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NCA3MiI+PHBhdGggY2xhc3M9Imljb24iIGZpbGw9IiM4ODk5YTYiIGQ9Ik0zOC43MjMgMTJjLTcuMTg3IDAtMTEuMTYgNy4zMDYtMTEuNzIzIDguMTMtLjU2My0uODI0LTQuNDk2LTguMTMtMTEuNzIzLTguMTNDOC43OSAxMiAzLjUzMyAxOC4xNjMgMy41MzMgMjQuNjQ3IDMuNTMzIDM5Ljk2NCAyMS44OSA1NS45MDcgMjcgNTZjNS4xMS0uMDkzIDIzLjQ2Ny0xNi4wMzYgMjMuNDY3LTMxLjM1M0M1MC40NjcgMTguMTYzIDQ1LjIxIDEyIDM4LjcyMyAxMnoiLz48L3N2Zz4=");
@@ -339,4 +369,3 @@ body {
 .Icon--share:hover {
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1Ni44IDcyIj48cGF0aCBmaWxsPSJub25lIiBkPSJNMC0uN2g0OHY3MkgweiIvPjxwYXRoIGNsYXNzPSJpY29uIiBmaWxsPSIjMDA4NGI0IiBkPSJNNTIuOCAzMi45TDQyLjIgMjIuM2MtMS40LTEuNC0zLjYtMS40LTUgMHMtMS40IDMuNiAwIDVsNC42IDQuNkgyMC45Yy0xLjkgMC0zLjUgMS42LTMuNSAzLjVzMS42IDMuNSAzLjUgMy41aDIwLjlsLTQuNiA0LjZjLTEuNCAxLjQtMS40IDMuNiAwIDUgLjcuNyAxLjYgMSAyLjUgMXMxLjgtLjMgMi41LTFsMTAuNi0xMC42YzEuNC0xLjQgMS40LTMuNiAwLTV6Ii8+PHBhdGggY2xhc3M9Imljb24iIGZpbGw9IiMwMDg0YjQiIGQ9Ik0yNC40IDQ5LjRoLTEzYy0uNiAwLTEuMS0uNS0xLjItMS4xVjIyLjRjMC0uNy41LTEuMiAxLjItMS4yaDEyLjljMS45IDAgMy41LTEuNiAzLjUtMy41cy0xLjYtMy41LTMuNS0zLjVIOC45Yy0zLjEgMC01LjcgMi41LTUuNyA1Ljd2MzFjMCAzLjEgMi41IDUuNyA1LjcgNS43aDE1LjVjMS45IDAgMy41LTEuNiAzLjUtMy41LjEtMi4xLTEuNS0zLjctMy41LTMuN3oiLz48L3N2Zz4=");
 }
- */
